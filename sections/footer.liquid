@@ -28,6 +28,19 @@
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
+
+  .new-window-icon {
+    width: 12px;
+    height: 12px;
+  }
+  .customize-settings {
+    width: 15px;
+    height: 15px;
+    margin-right: 6px;
+  }
+  .privacy-options-icon {
+    max-height: 1.1em; margin-left: 6px; top: 4px; position: relative;
+  }
 {%- endstyle -%}
 
 <footer class="footer color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding">
@@ -87,12 +100,14 @@
                             {%- if link.title == 'Customize Cookie Settings' -%}
                               <img src="{{ 'customize.svg' | asset_url }}" alt="Customize settings" class="customize-settings" />
                             {% endif %}
+                            <strong>
                             <a
                               href="{{ link.url }}"
                               class="link link--text list-menu__item list-menu__item--link{% if link.active %} list-menu__item--active{% endif %}"
                             >
                               {{ link.title }}
                             </a>
+                            </strong>
                             {%- if link.title == 'Your Privacy Choices' -%}
                             <img src="{{ 'new-window.svg' | asset_url }}" alt="Open in New Window" class="new-window-icon" />
                             <img src="{{ 'privacy-options-icon.png' | asset_url }}" alt="California Consumer Privacy Act Opt-Out" class="privacy-options-icon" />
