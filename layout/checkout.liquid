@@ -50,5 +50,33 @@
     </div>
 
     {{ tracking_code }}
+
+    <script>
+      // Checkboxes
+      setInterval(function() {
+        var fieldset = document.querySelector('.fieldset-description');
+        if (fieldset) {
+          var addressFields = document.querySelector('.address-fields');
+          fieldset.className = 'field field--show-floating-label';
+          addressFields.parentNode.insertBefore(fieldset, addressFields.nextSibling);
+          fieldset.querySelector('label[for=checkout_buyer_accepts_marketing]').textContent = "Keep me up to date on Dunkaroos news and offers by email.";
+          var checkbox = document.createElement('div');
+          checkbox.innerHTML = '<div class="field field--show-floating-label" data-buyer-accepts-marketing="">' +
+              '<div class="section__content">' +
+              '  <div class="checkbox-wrapper">' +
+              '    <div class="checkbox__input">' +
+              '      <input name="checkout[attributes][share_with_gm]" type="hidden" value="0" autocomplete="off"><input class="input-checkbox" data-backup="X" type="checkbox" value="1" checked="checked" name="checkout[attributes][share_with_gm]" id="checkout_share_with_gm">' +
+              '    </div>' +
+              '    <label class="checkbox__label" for="checkout_share_with_gm">I\'m fine if my information is shared with General Mills\' other brands for their advertising purposes.</label></div>' +
+              '    <p style="margin-left: 28.5px;">By continuing, you agree to our <a href="https://www.generalmills.com/en/Company/privacy-policies/privacy-policy-cookie-US-English" target="_blank">Privacy Policy</a> and <a href="https://www.generalmills.com/en/Company/legal-terms" target="_blank">Terms</a>. All transactions are subject to our <a href="/pages/shipping-policy" target="_blank">Shipping</a> and <a href="/pages/return-policy" target="_blank">Return policies</a>.</p>' +
+              '  </div>' +
+              '</div>';
+          addressFields.parentNode.insertBefore(checkbox, fieldset.nextSibling);
+          document.querySelector("input[name='checkout[remember_me]']").closest('.field').style.display = 'none';
+          document.getElementById('checkout_buyer_accepts_marketing').checked = false;        
+          document.getElementById('checkout_share_with_gm').checked = {% if checkout.attributes.share_with_gm == '0' %}false{% else %}true{% endif %};
+        }
+      }, 250);
+    </script>
   </body>
 </html>
