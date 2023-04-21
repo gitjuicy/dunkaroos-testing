@@ -84,12 +84,21 @@
                       <ul class="footer-block__details-content list-unstyled">
                         {%- for link in block.settings.menu.links -%}
                           <li>
+                            {%- if link.title == 'Customize Cookie Settings' -%}
+                              <img src="{{ 'customize.svg' | asset_url }}" alt="Customize settings" class="customize-settings" />
+                            {% endif %}
                             <a
                               href="{{ link.url }}"
                               class="link link--text list-menu__item list-menu__item--link{% if link.active %} list-menu__item--active{% endif %}"
                             >
                               {{ link.title }}
                             </a>
+                            {%- if link.title == 'Your Privacy Choices' -%}
+                            <img src="{{ 'new-window.svg' | asset_url }}" alt="Open in New Window" class="new-window-icon" />
+                            <img src="{{ 'privacy-options-icon.png' | asset_url }}" alt="California Consumer Privacy Act Opt-Out" class="privacy-options-icon" />
+                            {% elsif link.title == 'Contact Us' or link.title == 'Contáctanos' or link.title == 'Legal Terms' or link.title == 'Privacy Policy' or link.title == 'Cookie Notice' %}
+                            <img src="{{ 'new-window.svg' | asset_url }}" alt="Open in New Window" class="new-window-icon" />
+                            {% endif %}
                           </li>
                         {%- endfor -%}
                       </ul>
