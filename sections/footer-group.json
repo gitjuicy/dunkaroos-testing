@@ -4,6 +4,18 @@
   "sections": {
     "footer": {
       "type": "footer",
+      "blocks": {
+        "4bd4d029-e9be-446e-8250-f69e62173073": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Legal & Privacy",
+            "menu": "footer"
+          }
+        }
+      },
+      "block_order": [
+        "4bd4d029-e9be-446e-8250-f69e62173073"
+      ],
       "settings": {
         "color_scheme": "background-1",
         "newsletter_enable": false,
