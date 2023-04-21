@@ -329,7 +329,7 @@
   }
 
   .footer-block:only-child li {
-    display: inline;
+    display: block;
   }
 
   .footer-block__details-content > li:not(:last-child) {
