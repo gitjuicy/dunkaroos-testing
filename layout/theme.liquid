@@ -3,6 +3,11 @@
     width: auto !important;
     min-width: 50% !important;
   }
+  @media (max-width: 768px) {
+    .klaviyo-form {
+      flex-direction: column;
+    }
+  }
 {%- endstyle -%}
 <!doctype html>
 <html class="no-js" lang="{{ request.locale.iso_code }}">
