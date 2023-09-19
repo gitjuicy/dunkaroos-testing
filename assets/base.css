@@ -3147,3 +3147,26 @@ details-disclosure > details {
     100% { transform: rotate(360deg) translateX(1em) rotate(-360deg) scale(1.2); }
   }
 }
+
+.js-cart-item-unavailable .ajaxcart__head {
+  height: auto;
+}
+.js-cart-item-unavailable .ajaxcart__label-title {
+  margin-top: 20px;
+}
+.js-cart-item-unavailable .cart__checkout {
+  width: auto;
+  min-width: 200px;
+  display: inline-block;
+  margin-top: 20px;
+}
+.ajaxcart__body {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  padding: 20px;
+}
+.browse-more-products {
+  margin-top: 20px;
+}
