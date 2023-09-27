@@ -1099,12 +1099,20 @@ $(function() {
   $('#ga_unique_id_input').val(ga_unique_id);
 
   $('.js-cart-item-unavailable .cart__checkout').click(function() {
-    ga('send', 'event', 'Special Checkout Events', 'Continue to Checkout pressed', ga_unique_id);
+    dataLayer.push({
+      'event': 'continue_to_checkout',
+      ga_unique_id,
+    });
+    console.log('continue_to_checkout');
     $('#checkout').click();
   });
 
   $('.browse-more-products').click(function() {
-    ga('send', 'event', 'Special Checkout Events', 'Browse More Products pressed', ga_unique_id);
+    dataLayer.push({
+      'event': 'browse_more_products',
+      ga_unique_id,
+    });
+    console.log('browse_more_products');
   });
 
   $('form#cart').on('submit', function(e) {
@@ -1159,9 +1167,13 @@ $(function() {
           }
         }
 
-        ga('send', 'event', 'Special Checkout Events', 'Checkout attempted. Unavailable items: ' + notAvailableGAAction, ga_unique_id);
-
-        ga('send', 'event', 'Special Checkout Events', 'Checkout attempted. Available items: ' + availableGAAction, ga_unique_id);
+        dataLayer.push({
+          'event': 'checkout_attempted',
+          'unavailable_items': notAvailableGAAction,
+          'available_items': availableGAAction,
+          ga_unique_id,
+        });
+        console.log('checkout_attempted');
 
       });
 
@@ -1217,7 +1229,10 @@ $(function() {
             removeItems(notAvailableItemsProductIDs);
           },
           close: function(item) {
-            ga('send', 'event', 'Special Checkout Events', 'Popup Closed', ga_unique_id);
+            dataLayer.push({
+              'event': 'popup_closed',
+              ga_unique_id,
+            })
           }
         }
       });
